@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RawQuoteResponse {
+public class RawQuote {
     private QuoteSummary quoteSummary;
 
 

@@ -1,10 +1,8 @@
 package com.finview.back.model.search;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 
-@Value
-@Builder
+@Data
 public class SearchQuote {
 
     private String exchange;

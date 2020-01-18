@@ -1,6 +1,7 @@
 package com.finview.back.service;
 
 
+import com.finview.back.mapper.SearchMapper;
 import com.finview.back.model.search.RawSearchQuote;
 import com.finview.back.model.search.SearchQuote;
 import com.finview.back.repository.RestRepository;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SearchService {
 
-    private final MapperService mapperService;
+    private final SearchMapper mapperService;
     private final RestRepository repository;
 
     public List<RawSearchQuote> searchRaw(String ticker) {

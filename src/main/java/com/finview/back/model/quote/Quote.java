@@ -1,10 +1,8 @@
 package com.finview.back.model.quote;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 
-@Value
-@Builder
+@Data
 public class Quote {
 
     // ключевые кпоказатели
@@ -12,7 +10,7 @@ public class Quote {
     private double peg;
     private double pb;
     private double bookValue;
-    private String name;
+    private String companyName;
     private String ticker;
     private String type;
     private String currency;

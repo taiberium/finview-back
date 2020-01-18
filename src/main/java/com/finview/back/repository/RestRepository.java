@@ -1,15 +1,17 @@
 package com.finview.back.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.finview.back.model.quote.RawQuoteResponse;
+import com.finview.back.model.quote.RawQuote;
 import com.finview.back.model.search.RawSearchQuote;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -25,8 +27,14 @@ public class RestRepository {
         return Arrays.asList(mapper.convertValue(rawQuotesObject, RawSearchQuote[].class));
     }
 
-    public RawQuoteResponse getQuote(String ticker) {
+    public Optional<RawQuote> getQuote(String ticker) {
         String quoteUrl = "https://query2.finance.yahoo.com/v10/finance/quoteSummary/{ticker}?modules=price,summaryDetail,defaultKeyStatistics";
-        return restTemplate.getForObject(quoteUrl, RawQuoteResponse.class, ticker);
+        try {
+            return Optional.ofNullable(
+                    restTemplate.getForObject(quoteUrl, RawQuote.class, ticker)
+            );
+        } catch (HttpClientErrorException.NotFound e) {
+            return Optional.empty();
+        }
     }
 }
