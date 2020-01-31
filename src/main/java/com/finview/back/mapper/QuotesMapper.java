@@ -26,6 +26,7 @@ public abstract class QuotesMapper {
     @Mapping(target = "type", source = "price.quoteType")
     @Mapping(target = "currency", source = "price.currency")
     @Mapping(target = "price", source = "price.regularMarketPrice.raw")
+    @Mapping(target = "currencySymbol", source = "price.currencySymbol")
     public abstract Quote map(RawQuote.Result result);
 
     public Quote map(RawQuote rawQuote) {

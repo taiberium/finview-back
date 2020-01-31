@@ -14,6 +14,7 @@ public class Quote {
     private String ticker;
     private String type;
     private String currency;
+    private String currencySymbol;
     private double price;
     private double low52Week;
     private double high52Week;
