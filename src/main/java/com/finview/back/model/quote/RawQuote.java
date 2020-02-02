@@ -36,7 +36,7 @@ public class RawQuote {
 
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class SummaryDetail{
+    public static class SummaryDetail {
         private Data bid;
         private Data ask;
         private Data marketCap;
@@ -61,7 +61,7 @@ public class RawQuote {
 
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class DefaultKeyStatistics{
+    public static class DefaultKeyStatistics {
         private Data forwardPE;
         private Data profitMargins;
         private Data sharesOutstanding; // акции в обращении
