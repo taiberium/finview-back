@@ -5,6 +5,7 @@ import com.finview.back.model.exception.NotFoundException;
 import com.finview.back.model.user.UserDto;
 import com.finview.back.service.UsersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,6 +13,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
+@ConditionalOnProperty(name = "feature.user.enable")
 public class UserController {
     private final UsersService service;
     private final UsersMapper mapper;
