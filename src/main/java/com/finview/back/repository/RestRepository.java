@@ -17,6 +17,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RestRepository {
 
+    //history quotes
+   // https://query1.finance.yahoo.com/v8/finance/chart/M?formatted=true&region=US&interval=1d&period1=1557478828&period2=1589101228&events=div|split
+
     private final RestTemplate restTemplate;
     private final ObjectMapper mapper;
 
