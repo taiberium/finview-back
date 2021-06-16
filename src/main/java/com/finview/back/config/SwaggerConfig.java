@@ -13,7 +13,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        //http://http://localhost:8080/swagger-ui/
+        //http://localhost:8080/swagger-ui/
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
