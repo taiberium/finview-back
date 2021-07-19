@@ -2,11 +2,16 @@ plugins {
 	id 'org.springframework.boot' version '2.6.0-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'application'
 }
 
 group = 'com.finview'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '16'
+
+application {
+	mainClass = 'com.finview.back.Application' as Property<String>
+}
 
 configurations {
 	compileOnly {
