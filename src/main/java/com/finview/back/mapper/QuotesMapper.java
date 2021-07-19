@@ -1,7 +1,7 @@
 package com.finview.back.mapper;
 
 import com.finview.back.model.quote.Quote;
-import com.finview.back.model.quote.RawQuote;
+import com.finview.back.model.quote.raw.RawQuote;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.util.StringUtils;

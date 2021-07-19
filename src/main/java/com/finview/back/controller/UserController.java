@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
-@ConditionalOnProperty(name = "feature.user.enable")
+@ConditionalOnProperty("feature.user.enable")
 public class UserController {
     private final UsersService service;
     private final UsersMapper mapper;

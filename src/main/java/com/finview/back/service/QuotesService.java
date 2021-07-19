@@ -2,7 +2,7 @@ package com.finview.back.service;
 
 import com.finview.back.mapper.QuotesMapper;
 import com.finview.back.model.quote.Quote;
-import com.finview.back.model.quote.RawQuote;
+import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.repository.RestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

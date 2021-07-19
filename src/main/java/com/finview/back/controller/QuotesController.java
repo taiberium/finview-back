@@ -1,7 +1,7 @@
 package com.finview.back.controller;
 
 import com.finview.back.model.quote.Quote;
-import com.finview.back.model.quote.RawQuote;
+import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.service.QuotesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

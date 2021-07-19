@@ -1,7 +1,7 @@
 package com.finview.back.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.finview.back.model.quote.RawQuote;
+import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.model.search.RawSearchQuote;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
