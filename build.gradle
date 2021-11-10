@@ -3,11 +3,12 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'application'
+	id 'org.springframework.experimental.aot' version '0.11.0-SNAPSHOT'
 }
 
 group = 'com.finview'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+sourceCompatibility = '17'
 
 application {
 	mainClass = 'com.finview.back.Application'
@@ -30,7 +31,7 @@ repositories {
 }
 
 ext{
-	swaggerVersion = '3.0.0'
+	swaggerVersion = '1.5.12'
 	mapstructVersion = '1.4.2.Final'
 }
 
@@ -40,7 +41,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	// api documentation
-	implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
+	implementation "org.springdoc:springdoc-openapi-ui:${swaggerVersion}"
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation "org.springframework.boot:spring-boot-starter-security"
@@ -52,4 +53,9 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+bootBuildImage {
+	builder = 'paketobuildpacks/builder:tiny'
+	environment = ['BP_NATIVE_IMAGE': 'true']
 }
