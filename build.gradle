@@ -3,7 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'application'
-	id 'org.springframework.experimental.aot' version '0.11.0-SNAPSHOT'
+	/*id 'org.springframework.experimental.aot' version '0.11.0-SNAPSHOT'*/ //temporary disable native images
 }
 
 group = 'com.finview'
@@ -12,10 +12,6 @@ sourceCompatibility = '17'
 
 application {
 	mainClass = 'com.finview.back.Application'
-}
-
-jar{
-	enabled = false
 }
 
 configurations {
