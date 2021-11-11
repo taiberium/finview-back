@@ -1,25 +1,23 @@
 package com.finview.back.model.quote;
 
-import lombok.Data;
+// ключевые кпоказатели
+public record Quote(
+        double pe, // отношение цены актива к чистой прибыли актива (за какой период?)
+        double peg,
+        double pb,
+        double bookValue,
+        double price,
+        double low52Week,
+        double high52Week,
+        double highDay,
+        double lowDay,
+        double dividend,
+        double dividendPercent,
 
-@Data
-public class Quote {
-
-    // ключевые кпоказатели
-    private double pe; // отношение цены актива к чистой прибыли актива (за какой период?)
-    private double peg;
-    private double pb;
-    private double bookValue;
-    private String companyName;
-    private String ticker;
-    private String type;
-    private String currency;
-    private String currencySymbol;
-    private double price;
-    private double low52Week;
-    private double high52Week;
-    private double highDay;
-    private double lowDay;
-    private double dividend;
-    private double dividendPercent;
+        String companyName,
+        String ticker,
+        String type,
+        String currency,
+        String currencySymbol
+) {
 }

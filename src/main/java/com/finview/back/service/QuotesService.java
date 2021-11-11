@@ -4,7 +4,6 @@ import com.finview.back.mapper.QuotesMapper;
 import com.finview.back.model.quote.Quote;
 import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.repository.RestRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -14,11 +13,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
-public class QuotesService {
-
-    private final RestRepository repository;
-    private final QuotesMapper mapper;
+public record QuotesService(
+        RestRepository repository,
+        QuotesMapper mapper
+) {
 
     public List<Quote> getQuotes(List<String> quoteTickers) {
         if (CollectionUtils.isEmpty(quoteTickers)) return Collections.emptyList();

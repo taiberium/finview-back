@@ -38,8 +38,6 @@ ext{
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
 	// api documentation
 	implementation "org.springdoc:springdoc-openapi-ui:${swaggerVersion}"
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"

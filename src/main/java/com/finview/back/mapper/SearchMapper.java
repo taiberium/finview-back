@@ -4,7 +4,6 @@ import com.finview.back.model.search.RawSearchQuote;
 import com.finview.back.model.search.SearchQuote;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -24,8 +23,8 @@ public abstract class SearchMapper {
 
     //don't remove!
     protected String findCompanyName(RawSearchQuote rawSearchQuote) {
-        return StringUtils.isEmpty(rawSearchQuote.getShortname()) ?
-                rawSearchQuote.getShortname() :
-                rawSearchQuote.getLongname();
+        return StringUtils.hasText(rawSearchQuote.shortname()) ?
+                rawSearchQuote.shortname() :
+                rawSearchQuote.longname();
     }
 }

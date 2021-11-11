@@ -5,7 +5,6 @@ import com.finview.back.mapper.SearchMapper;
 import com.finview.back.model.search.RawSearchQuote;
 import com.finview.back.model.search.SearchQuote;
 import com.finview.back.repository.RestRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -13,18 +12,17 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-public class SearchService {
-
-    private final SearchMapper mapperService;
-    private final RestRepository repository;
+public record SearchService(
+        SearchMapper mapperService,
+        RestRepository repository
+) {
 
     public List<RawSearchQuote> searchRaw(String ticker) {
         return repository.search(ticker);
     }
 
     public List<SearchQuote> search(String ticker) {
-        if (StringUtils.isEmpty(ticker)){
+        if (!StringUtils.hasText(ticker)) {
             return Collections.emptyList();
         }
         List<RawSearchQuote> rawSearchQuotes = repository.search(ticker);

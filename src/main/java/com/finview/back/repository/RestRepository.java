@@ -3,7 +3,6 @@ package com.finview.back.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.model.search.RawSearchQuote;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -14,14 +13,18 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
-@RequiredArgsConstructor
 public class RestRepository {
-
-    //history quotes
-   // https://query1.finance.yahoo.com/v8/finance/chart/M?formatted=true&region=US&interval=1d&period1=1557478828&period2=1589101228&events=div|split
 
     private final RestTemplate restTemplate;
     private final ObjectMapper mapper;
+
+    public RestRepository(RestTemplate restTemplate, ObjectMapper mapper) {
+        this.restTemplate = restTemplate;
+        this.mapper = mapper;
+    }
+
+    //history quotes
+    // https://query1.finance.yahoo.com/v8/finance/chart/M?formatted=true&region=US&interval=1d&period1=1557478828&period2=1589101228&events=div|split
 
     public List<RawSearchQuote> search(String ticker) {
         String searchUrl = "https://query1.finance.yahoo.com/v1/finance/search?q={ticker}&quotesCount=6&newsCount=0";

@@ -30,16 +30,16 @@ public abstract class QuotesMapper {
     public abstract Quote map(RawQuote.Result result);
 
     public Quote map(RawQuote rawQuote) {
-        RawQuote.Result result = rawQuote.getQuoteSummary().getResult().get(0);
+        RawQuote.Result result = rawQuote.quoteSummary().result().get(0);
         return map(result);
     }
 
     //don't remove!
     protected String findCompanyName(RawQuote.Result result) {
-        var price = result.getPrice();
+        var price = result.price();
         if (price == null) return null;
-        return StringUtils.isEmpty(price.getShortName()) ?
-                price.getShortName() :
-                price.getLongName();
+        return StringUtils.hasText(price.shortName()) ?
+                price.shortName() :
+                price.longName();
     }
 }

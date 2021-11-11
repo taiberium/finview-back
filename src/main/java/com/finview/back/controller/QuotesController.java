@@ -3,18 +3,16 @@ package com.finview.back.controller;
 import com.finview.back.model.quote.Quote;
 import com.finview.back.model.quote.raw.RawQuote;
 import com.finview.back.service.QuotesService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/quotes")
-public class QuotesController {
-
-    private final QuotesService service;
+public record QuotesController(
+        QuotesService service
+) {
 
     @GetMapping("{ticker}/raw")
     public Optional<RawQuote> getRawQuote(@PathVariable("ticker") String ticker) {
