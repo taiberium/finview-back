@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "feature.user.enable",
-      "type": "java.lang.String",
-      "description": "Description for feature.user.enable."
-  }
-] }
